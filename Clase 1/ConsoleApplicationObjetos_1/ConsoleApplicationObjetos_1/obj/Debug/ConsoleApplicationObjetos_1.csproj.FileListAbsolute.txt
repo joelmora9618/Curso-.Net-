@@ -1,0 +1,6 @@
+C:\Curso .NET\Clase 1\ConsoleApplicationObjetos_1\ConsoleApplicationObjetos_1\bin\Debug\ConsoleApplicationObjetos_1.exe.config
+C:\Curso .NET\Clase 1\ConsoleApplicationObjetos_1\ConsoleApplicationObjetos_1\bin\Debug\ConsoleApplicationObjetos_1.exe
+C:\Curso .NET\Clase 1\ConsoleApplicationObjetos_1\ConsoleApplicationObjetos_1\bin\Debug\ConsoleApplicationObjetos_1.pdb
+C:\Curso .NET\Clase 1\ConsoleApplicationObjetos_1\ConsoleApplicationObjetos_1\obj\Debug\ConsoleApplicationObjetos_1.csprojResolveAssemblyReference.cache
+C:\Curso .NET\Clase 1\ConsoleApplicationObjetos_1\ConsoleApplicationObjetos_1\obj\Debug\ConsoleApplicationObjetos_1.exe
+C:\Curso .NET\Clase 1\ConsoleApplicationObjetos_1\ConsoleApplicationObjetos_1\obj\Debug\ConsoleApplicationObjetos_1.pdb

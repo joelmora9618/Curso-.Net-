@@ -1,0 +1,6 @@
+C:\Curso .NET\Clase 1\ConsoleApplication_ejercicio _2\ConsoleApplication_ejercicio _2\bin\Debug\ConsoleApplication_ejercicio _2.exe.config
+C:\Curso .NET\Clase 1\ConsoleApplication_ejercicio _2\ConsoleApplication_ejercicio _2\bin\Debug\ConsoleApplication_ejercicio _2.exe
+C:\Curso .NET\Clase 1\ConsoleApplication_ejercicio _2\ConsoleApplication_ejercicio _2\bin\Debug\ConsoleApplication_ejercicio _2.pdb
+C:\Curso .NET\Clase 1\ConsoleApplication_ejercicio _2\ConsoleApplication_ejercicio _2\obj\Debug\ConsoleApplication_ejercicio _2.csprojResolveAssemblyReference.cache
+C:\Curso .NET\Clase 1\ConsoleApplication_ejercicio _2\ConsoleApplication_ejercicio _2\obj\Debug\ConsoleApplication_ejercicio _2.exe
+C:\Curso .NET\Clase 1\ConsoleApplication_ejercicio _2\ConsoleApplication_ejercicio _2\obj\Debug\ConsoleApplication_ejercicio _2.pdb

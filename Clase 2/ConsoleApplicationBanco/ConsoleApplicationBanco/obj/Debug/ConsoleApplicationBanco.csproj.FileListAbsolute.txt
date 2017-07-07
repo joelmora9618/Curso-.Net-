@@ -1,0 +1,1 @@
+C:\Curso .NET\Clase 2\ConsoleApplicationBanco\ConsoleApplicationBanco\bin\Debug\ConsoleApplicationBanco.exe.config

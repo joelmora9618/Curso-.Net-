@@ -1,0 +1,6 @@
+C:\Curso .NET\Clase 1\Visual.NET\Visual.NET\bin\Debug\Visual.NET.exe.config
+C:\Curso .NET\Clase 1\Visual.NET\Visual.NET\bin\Debug\Visual.NET.exe
+C:\Curso .NET\Clase 1\Visual.NET\Visual.NET\bin\Debug\Visual.NET.pdb
+C:\Curso .NET\Clase 1\Visual.NET\Visual.NET\obj\Debug\Visual.NET.csprojResolveAssemblyReference.cache
+C:\Curso .NET\Clase 1\Visual.NET\Visual.NET\obj\Debug\Visual.NET.exe
+C:\Curso .NET\Clase 1\Visual.NET\Visual.NET\obj\Debug\Visual.NET.pdb

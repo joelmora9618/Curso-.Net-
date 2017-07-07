@@ -1,0 +1,6 @@
+C:\Curso .NET\Clase 1\Calculadora\Calculadora\bin\Debug\Calculadora.exe.config
+C:\Curso .NET\Clase 1\Calculadora\Calculadora\bin\Debug\Calculadora.exe
+C:\Curso .NET\Clase 1\Calculadora\Calculadora\bin\Debug\Calculadora.pdb
+C:\Curso .NET\Clase 1\Calculadora\Calculadora\obj\Debug\Calculadora.csprojResolveAssemblyReference.cache
+C:\Curso .NET\Clase 1\Calculadora\Calculadora\obj\Debug\Calculadora.exe
+C:\Curso .NET\Clase 1\Calculadora\Calculadora\obj\Debug\Calculadora.pdb
