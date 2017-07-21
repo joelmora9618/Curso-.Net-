@@ -44,6 +44,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="General\Banco.cs" />
+    <Compile Include="Interface\IProducto.cs" />
+    <Compile Include="Tarjeta\TarjetaDeCredito.cs" />
     <Compile Include="TipoDeCuenta\CajaDeAhorro.cs" />
     <Compile Include="TipoDeCuenta\CuentaBancaria.cs" />
     <Compile Include="TipoDeCuenta\CuentaCorriente.cs" />

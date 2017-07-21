@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using ConsoleApplication_ejercicio__2.Interface;
 
 namespace ConsoleApplication_ejercicio__2.TipoDeCuenta
 {
-    class CuentaCorriente:CuentaBancaria
+    class CuentaCorriente:CuentaBancaria,IProducto
     {
         private double limiteExtra;
 
@@ -78,6 +79,19 @@ namespace ConsoleApplication_ejercicio__2.TipoDeCuenta
                 "Saldo"+ base.Saldo;
         }
 
+        public string RecuperarNombre()
+        {
+            throw new NotImplementedException();
+        }
 
+        public double RecuperarPrecio()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void Vender()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

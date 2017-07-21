@@ -5,6 +5,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using ConsoleApplication_ejercicio__2.Interface;
+using ConsoleApplication_ejercicio__2.Tarjeta;
 
 namespace ConsoleApplication_ejercicio__2
 {
@@ -35,7 +37,16 @@ namespace ConsoleApplication_ejercicio__2
             Console.WriteLine(e1.RecuperarDatosPersonales());
 
             Banco banco = new Banco();
-            Object cc1 = new CuentaCorriente(1234, 1000);
+            CuentaCorriente cc1 = new CuentaCorriente(1234, 1000);
+
+            TarjetaDeCredito tarjetaCredito = new TarjetaDeCredito();
+            tarjetaCredito.Nombre = "VISA GOLD";
+            tarjetaCredito.PrecioVenta = 300;
+            banco.VenderProducto(cc1);
+          //  banco.VenderProducto(tarjetaCredito);
+
+
+
             Console.WriteLine(cc1);
             Console.WriteLine(cc1.ToString());
 
