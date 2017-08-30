@@ -1,0 +1,62 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title></title>
+	<meta charset="utf-8" />
+    <script src="js/jquery-3.2.1.js"></script>
+    <script src="js/handlebars-v4.0.10.js"></script>
+    <script>
+        $(document).ready(function ()
+        {
+            var contador = 0;
+            console.log("Hola mundo");
+            $('#botonAgregar').on('click',function()
+            {
+                //$('#miDiv').append("Hola a todos!");
+               
+                var cNombre = $('#campoNombre').val();
+                var cPrecio = $('#campoPrecio').val();
+                var cCantidad = $('#campoCantidad').val();
+                var subTotal = parseInt(campoCantidad * campoPrecio);
+                contador = contador + 1 
+                var htmlRow = '<tr><td><a class="numerador" href="#">'+contador+'</a></td><td>' + cNombre + '</td><td>' + cPrecio + '</td><td>' + cCantidad + '</td><td>' + subTotal + '</td><td><a class="linkBorrar" href="#">Borrar</a></td></tr>';
+                $('#table1').append(htmlRow);
+
+                $('#table1').on('click', '.linkBorrar', function(event)
+                {
+                    event.preventDefault();
+                    $(this).parents('tr').remove();
+                    armarContador();
+                });
+            });     
+        });
+
+        function armarContador() {
+            $('.numerador').each(function (index, elemento) {
+                $(elemento).html(index + 1);
+            });
+        }
+
+    </script>
+</head>
+<body>
+    <div id="miDiv">prueba</div>
+    <h1>Datos general de la factura</h1>
+    <h2>Form Producto</h2>
+
+    <form>
+        <b>Nombre:</b><input type="text" name="campoNombre"id="campoNombre"/><br />
+        <b>Precio:</b><input type="text" name="campoPrecio" id="campoPrecio" /><br />
+        <b>Cantidad:</b><input type="text" name="campoCantidad" id="campoCantidad" /><br />
+        <button type="button"id="botonAgregar">Agregar</button>
+    </form>
+    <h2>Datos Factura</h2>
+
+    <table id="table1">
+        <tr>
+            <th>Nro</th><th>Nombre</th><th>Precio</th><th>Cantidad</th><th>Total</th><th>&nbsp;</th>           
+        </tr>
+    </table>
+</body>
+</html>

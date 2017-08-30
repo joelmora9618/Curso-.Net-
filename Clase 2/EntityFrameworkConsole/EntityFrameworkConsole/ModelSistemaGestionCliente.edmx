@@ -1,0 +1,269 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="ModelSistemaGestionCliente.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2012" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="ModelSistemaGestionClienteStoreContainer">
+    <EntitySet Name="Personas" EntityType="ModelSistemaGestionCliente.Store.Personas" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Direcciones" EntityType="ModelSistemaGestionCliente.Store.Direcciones" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Telefonos" EntityType="ModelSistemaGestionCliente.Store.Telefonos" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Localidades" EntityType="ModelSistemaGestionCliente.Store.Localidades" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="PersonaLocalidad" EntityType="ModelSistemaGestionCliente.Store.PersonaLocalidad" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="PersonaDireccion" Association="ModelSistemaGestionCliente.Store.PersonaDireccion">
+      <End Role="Persona" EntitySet="Personas" />
+      <End Role="Direccion" EntitySet="Direcciones" />
+    </AssociationSet>
+    <AssociationSet Name="PersonaTelefono" Association="ModelSistemaGestionCliente.Store.PersonaTelefono">
+      <End Role="Persona" EntitySet="Personas" />
+      <End Role="Telefono" EntitySet="Telefonos" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PersonaLocalidad_Persona" Association="ModelSistemaGestionCliente.Store.FK_PersonaLocalidad_Persona">
+      <End Role="Persona" EntitySet="Personas" />
+      <End Role="PersonaLocalidad" EntitySet="PersonaLocalidad" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PersonaLocalidad_Localidad" Association="ModelSistemaGestionCliente.Store.FK_PersonaLocalidad_Localidad">
+      <End Role="Localidad" EntitySet="Localidades" />
+      <End Role="PersonaLocalidad" EntitySet="PersonaLocalidad" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Personas">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nombre" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Direcciones">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Calle" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Persona_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Telefonos">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Numero" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Persona_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Localidades">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nombre" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="PersonaLocalidad">
+    <Key>
+      <PropertyRef Name="Personas_Id" />
+      <PropertyRef Name="Localidades_Id" />
+    </Key>
+    <Property Name="Personas_Id" Type="int" Nullable="false" />
+    <Property Name="Localidades_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <Association Name="PersonaDireccion">
+    <End Role="Persona" Type="ModelSistemaGestionCliente.Store.Personas" Multiplicity="1" />
+    <End Role="Direccion" Type="ModelSistemaGestionCliente.Store.Direcciones" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Persona">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Direccion">
+        <PropertyRef Name="Persona_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="PersonaTelefono">
+    <End Role="Persona" Type="ModelSistemaGestionCliente.Store.Personas" Multiplicity="1" />
+    <End Role="Telefono" Type="ModelSistemaGestionCliente.Store.Telefonos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Persona">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Telefono">
+        <PropertyRef Name="Persona_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PersonaLocalidad_Persona">
+    <End Role="Persona" Type="ModelSistemaGestionCliente.Store.Personas" Multiplicity="1" />
+    <End Role="PersonaLocalidad" Type="ModelSistemaGestionCliente.Store.PersonaLocalidad" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Persona">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="PersonaLocalidad">
+        <PropertyRef Name="Personas_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PersonaLocalidad_Localidad">
+    <End Role="PersonaLocalidad" Type="ModelSistemaGestionCliente.Store.PersonaLocalidad" Multiplicity="*" />
+    <End Role="Localidad" Type="ModelSistemaGestionCliente.Store.Localidades" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Localidad">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="PersonaLocalidad">
+        <PropertyRef Name="Localidades_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema xmlns="http://schemas.microsoft.com/ado/2009/11/edm" xmlns:cg="http://schemas.microsoft.com/ado/2006/04/codegeneration" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" Namespace="ModelSistemaGestionCliente" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" annotation:UseStrongSpatialTypes="false">
+        <EntityContainer Name="ModelSistemaGestionClienteContainer" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Personas" EntityType="ModelSistemaGestionCliente.Persona" />
+          <EntitySet Name="Direcciones" EntityType="ModelSistemaGestionCliente.Direccion" />
+          <AssociationSet Name="PersonaDireccion" Association="ModelSistemaGestionCliente.PersonaDireccion">
+            <End Role="Persona" EntitySet="Personas" />
+            <End Role="Direccion" EntitySet="Direcciones" />
+          </AssociationSet>
+          <EntitySet Name="Telefonos" EntityType="ModelSistemaGestionCliente.Telefono" />
+          <AssociationSet Name="PersonaTelefono" Association="ModelSistemaGestionCliente.PersonaTelefono">
+            <End Role="Persona" EntitySet="Personas" />
+            <End Role="Telefono" EntitySet="Telefonos" />
+          </AssociationSet>
+          <EntitySet Name="Localidades" EntityType="ModelSistemaGestionCliente.Localidad" />
+          <AssociationSet Name="PersonaLocalidad" Association="ModelSistemaGestionCliente.PersonaLocalidad">
+            <End Role="Persona" EntitySet="Personas" />
+            <End Role="Localidad" EntitySet="Localidades" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Persona">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nombre" Type="String" Nullable="false" />
+          <NavigationProperty Name="Direccion" Relationship="ModelSistemaGestionCliente.PersonaDireccion" FromRole="Persona" ToRole="Direccion" />
+          <NavigationProperty Name="Telefonos" Relationship="ModelSistemaGestionCliente.PersonaTelefono" FromRole="Persona" ToRole="Telefono" />
+          <NavigationProperty Name="Localidades" Relationship="ModelSistemaGestionCliente.PersonaLocalidad" FromRole="Persona" ToRole="Localidad" />
+        </EntityType>
+        <EntityType Name="Direccion">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Calle" Type="String" Nullable="false" />
+          <NavigationProperty Name="Persona" Relationship="ModelSistemaGestionCliente.PersonaDireccion" FromRole="Direccion" ToRole="Persona" />
+        </EntityType>
+        <Association Name="PersonaDireccion">
+          <End Type="ModelSistemaGestionCliente.Persona" Role="Persona" Multiplicity="1" />
+          <End Type="ModelSistemaGestionCliente.Direccion" Role="Direccion" Multiplicity="0..1" />
+        </Association>
+        <EntityType Name="Telefono">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Numero" Type="String" Nullable="false" />
+          <NavigationProperty Name="Persona" Relationship="ModelSistemaGestionCliente.PersonaTelefono" FromRole="Telefono" ToRole="Persona" />
+        </EntityType>
+        <Association Name="PersonaTelefono">
+          <End Type="ModelSistemaGestionCliente.Persona" Role="Persona" Multiplicity="1" />
+          <End Type="ModelSistemaGestionCliente.Telefono" Role="Telefono" Multiplicity="*" />
+        </Association>
+        <EntityType Name="Localidad">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nombre" Type="String" Nullable="false" />
+          <NavigationProperty Name="Personas" Relationship="ModelSistemaGestionCliente.PersonaLocalidad" FromRole="Localidad" ToRole="Persona" />
+        </EntityType>
+        <Association Name="PersonaLocalidad">
+          <End Type="ModelSistemaGestionCliente.Persona" Role="Persona" Multiplicity="*" />
+          <End Type="ModelSistemaGestionCliente.Localidad" Role="Localidad" Multiplicity="*" />
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+    <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="ModelSistemaGestionClienteStoreContainer" CdmEntityContainer="ModelSistemaGestionClienteContainer">
+    <EntitySetMapping Name="Personas">
+      <EntityTypeMapping TypeName="IsTypeOf(ModelSistemaGestionCliente.Persona)">
+        <MappingFragment StoreEntitySet="Personas">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Direcciones">
+      <EntityTypeMapping TypeName="IsTypeOf(ModelSistemaGestionCliente.Direccion)">
+        <MappingFragment StoreEntitySet="Direcciones">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Calle" ColumnName="Calle" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Telefonos">
+      <EntityTypeMapping TypeName="IsTypeOf(ModelSistemaGestionCliente.Telefono)">
+        <MappingFragment StoreEntitySet="Telefonos">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Numero" ColumnName="Numero" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Localidades">
+      <EntityTypeMapping TypeName="IsTypeOf(ModelSistemaGestionCliente.Localidad)">
+        <MappingFragment StoreEntitySet="Localidades">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="PersonaDireccion" TypeName="ModelSistemaGestionCliente.PersonaDireccion" StoreEntitySet="Direcciones">
+      <EndProperty Name="Persona">
+        <ScalarProperty Name="Id" ColumnName="Persona_Id" />
+      </EndProperty>
+      <EndProperty Name="Direccion">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="PersonaTelefono" TypeName="ModelSistemaGestionCliente.PersonaTelefono" StoreEntitySet="Telefonos">
+      <EndProperty Name="Persona">
+        <ScalarProperty Name="Id" ColumnName="Persona_Id" />
+      </EndProperty>
+      <EndProperty Name="Telefono">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="PersonaLocalidad" TypeName="ModelSistemaGestionCliente.PersonaLocalidad" StoreEntitySet="PersonaLocalidad">
+      <EndProperty Name="Persona">
+        <ScalarProperty Name="Id" ColumnName="Personas_Id" />
+      </EndProperty>
+      <EndProperty Name="Localidad">
+        <ScalarProperty Name="Id" ColumnName="Localidades_Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+  </EntityContainerMapping>
+</Mapping></edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <edmx:Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </edmx:Connection>
+    <edmx:Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="False" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Ninguno" />
+        <DesignerProperty Name="UseLegacyProvider" Value="False" />
+      </DesignerInfoPropertySet>
+    </edmx:Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

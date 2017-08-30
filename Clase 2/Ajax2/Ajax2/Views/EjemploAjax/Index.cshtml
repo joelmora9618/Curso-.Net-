@@ -1,0 +1,32 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<script>
+    $(document).ready(function () {
+        $('#buttonLlamarPartialView').on('click', function () {
+            $.get('RecuperarPartialView', function (respuesta) {
+                $('#contenidoPartialView').html(respuesta);
+            });
+        });
+
+        $('#buttonLlamarJSON').on('click', function () {
+            $.getJSON('RecuperarJSON', function (respuesta) {
+                $('#contenidoJSON').html(respuesta.Nombre +
+                    ' ' + respuesta.Apellido +
+                    ' ' + respuesta.Edad);
+            });
+        });
+    });
+</script>
+
+<h2>Ejemplo ajax</h2>
+<button id="buttonLlamarPartialView">LLamar partial View</button>
+<div id="contenidoPartialView"></div>
+
+<button id="buttonLlamarJSON">LLamar JSON</button>
+<div id="contenidoJSON"></div>
+

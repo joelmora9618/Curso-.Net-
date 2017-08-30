@@ -1,0 +1,44 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <meta charset="utf-8" />
+
+    <script src="js/jquery-3.2.1.js"></script>
+    <script src="js/jquery-ui.js"></script>
+    <script src="js/jquery.blockUI.js"></script>
+    <link href="css/jquery-ui.css" rel="stylesheet" />
+
+    <script>
+        $(document).ready(function () {
+            $('#campoFecha').datepicker();
+        });
+    </script>
+
+    <script>
+        $(document).ready(function () {
+            $('#botonajax').on('click', function () {
+               // $.blockUI();
+                // $('#miDiv').load('contenidoajax.html');
+                $.getJSON('https://jsonplaceholder.typicode.com/posts', function (respuesta) {
+           
+                    $.each(respuesta, function (index, elemento) {
+                        $('#miDiv').append(elemento.title + '<br>'
+                            + elemento.body);
+                    })
+                   
+                 //   $.unblockUI();
+                });
+            });
+        });
+
+    </script>
+	
+</head>
+<body>
+    <button type="button" id="botonajax">Llamar ajax</button>
+    <div id="miDiv"></div>
+    <input type="text" id="campoFecha"/>
+</body>
+</html>

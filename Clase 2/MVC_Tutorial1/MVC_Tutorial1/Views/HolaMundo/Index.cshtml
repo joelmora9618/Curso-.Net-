@@ -1,0 +1,17 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>@ViewBag.Nombre</h2>
+
+@Html.ActionLink("Ejemplo Params", "EjemploParams", new { nombre = "Juan", edad = 40})
+
+<h2>Otro ejemplo de link</h2>
+<a href="/HolaMundo/EjemploParams?nombre=juan&edad=40">Ejemplo Params</a>
+
+<form method="post" action="EjemploParamsCollectionForm">
+    Nombre: <input type="text" name="nombre"/>
+    Edad: <input type="text" name="edad" />
+    <button type="submit">Enviar Datos</button>
+</form>
